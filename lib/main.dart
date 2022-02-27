@@ -24,12 +24,13 @@ class Home extends StatelessWidget {
   Widget build (BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.grey[900],
+        resizeToAvoidBottomInset: false,
         body:
         Column(
           children: <Widget>[
             Expanded(child:
             Container(
-              height: 750,
+              height: 200,
               width: 500,
               decoration: BoxDecoration(
                 image: DecorationImage(
@@ -51,7 +52,7 @@ class Home extends StatelessWidget {
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 20.0,
-                        fontFamily: 'Roboto',
+                        fontFamily: 'Roboto Mono sample',
                       ),
                     ),
                     SizedBox(height: 20),

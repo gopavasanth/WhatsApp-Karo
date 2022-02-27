@@ -4,7 +4,7 @@
    <application
         android:label="WhatsApp Karo"
         android:name="${applicationName}"
-        android:icon="@mipmap/whats_app">
+        android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
             android:exported="true"
