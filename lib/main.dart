@@ -12,6 +12,9 @@ void main() {
 }
 
 _launchURLBrowser(String num) async {
+  if (num.startsWith("+91")) {
+    num = num.substring(3);
+  }
   num=num.toString();
   String url = 'https://wa.me/+91${num}';
   print(url);
@@ -92,7 +95,7 @@ class Home extends StatelessWidget {
                           TextFormField(
                             controller: number,
                             keyboardType: TextInputType.phone,
-                            maxLength: 10,
+                            maxLength: 13,
                             decoration: InputDecoration(
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Colors.black, width: 1.0),
