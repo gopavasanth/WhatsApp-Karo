@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:whatsapp_karo/consts.dart';
 import 'package:whatsapp_karo/utils.dart';
 
 _launchURLBrowser(String num) async {
@@ -22,7 +23,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).colorScheme.background,
         resizeToAvoidBottomInset: false,
         body: Center(
           child: Column(
@@ -116,6 +117,10 @@ class Home extends StatelessWidget {
                       padding: const EdgeInsets.all(3.0),
                       child: ElevatedButton(
                           onPressed: () => _launchURLBrowser(number.text),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Constants.primaryColor,
+                            foregroundColor: Colors.black,
+                          ),
                           child: const Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -146,7 +151,7 @@ class Home extends StatelessWidget {
               Text(
                 "Whats",
                 style: TextStyle(
-                  color: Colors.amber,
+                  color: Constants.primaryColor,
                   fontSize: MediaQuery.of(context).size.height / 30,
                   fontWeight: FontWeight.bold,
                 ),
