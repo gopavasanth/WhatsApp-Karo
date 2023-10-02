@@ -3,7 +3,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 class UrlHelper {
   static launchWhatsApp(String mobileNumber) {
-    String url = 'https://wa.me/+91$mobileNumber';
+    String url = 'https://wa.me/$mobileNumber';
     debugPrint(url); // always do a print only in debug
     _launchUrl(Uri.parse(url));
   }
