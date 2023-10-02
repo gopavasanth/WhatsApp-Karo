@@ -26,9 +26,18 @@ class _WhatsAppInputState extends State<WhatsAppInput> {
     super.initState();
     focusNode = FocusNode();
     currentCountry = Constants.defaultCountry;
-    countryString = Countries.getFlagEmoji(currentCountry['code'] ?? 'IN');
-    numberController = TextEditingController(text: currentCountry['dial_code']);
+    setCountry();
+    // numberController = TextEditingController(text: currentCountry['dial_code']);
+    numberController = TextEditingController();
     showClear = true;
+  }
+
+  setCountry() {
+    setState(() {
+      countryString =
+          '${Countries.getFlagEmoji(currentCountry['code'] ?? Constants.defaultCountry['code']!)} ';
+      // '${currentCountry['dial_code'] ?? Constants.defaultCountry['dial_code']!}';
+    });
   }
 
   clearInput() {
@@ -90,8 +99,7 @@ class _WhatsAppInputState extends State<WhatsAppInput> {
         if (text.contains(
             element['dial_code'] ?? Constants.defaultCountry['dial_code']!)) {
           currentCountry = element;
-          countryString = Countries.getFlagEmoji(
-              element['code'] ?? Constants.defaultCountry['code']!);
+          setCountry();
         }
       }
     }
@@ -112,6 +120,7 @@ class _WhatsAppInputState extends State<WhatsAppInput> {
                 padding: const EdgeInsets.only(right: 8.0),
                 child: Container(
                   height: double.maxFinite,
+                  width: 40,
                   padding: const EdgeInsets.symmetric(horizontal: 4.0),
                   decoration: const BoxDecoration(
                     border: Border.fromBorderSide(
