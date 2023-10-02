@@ -29,14 +29,12 @@ class _WhatsAppInputState extends State<WhatsAppInput> {
     setCountry();
     // numberController = TextEditingController(text: currentCountry['dial_code']);
     numberController = TextEditingController();
-    showClear = true;
+    showClear = false;
   }
 
   setCountry() {
     setState(() {
-      countryString =
-          '${Countries.getFlagEmoji(currentCountry['code'] ?? Constants.defaultCountry['code']!)} ';
-      // '${currentCountry['dial_code'] ?? Constants.defaultCountry['dial_code']!}';
+      countryString = Countries.getFlagEmoji(currentCountry['code']!);
     });
   }
 
@@ -96,8 +94,7 @@ class _WhatsAppInputState extends State<WhatsAppInput> {
       // change current country and flag from what is pasted or typed
       for (var element in Countries.allCountries) {
         // print(element['dial_code']);
-        if (text.contains(
-            element['dial_code'] ?? Constants.defaultCountry['dial_code']!)) {
+        if (text.contains(element['dial_code']!)) {
           currentCountry = element;
           setCountry();
         }
@@ -120,7 +117,7 @@ class _WhatsAppInputState extends State<WhatsAppInput> {
                 padding: const EdgeInsets.only(right: 8.0),
                 child: Container(
                   height: double.maxFinite,
-                  width: 40,
+                  width: 120,
                   padding: const EdgeInsets.symmetric(horizontal: 4.0),
                   decoration: const BoxDecoration(
                     border: Border.fromBorderSide(
@@ -128,7 +125,31 @@ class _WhatsAppInputState extends State<WhatsAppInput> {
                     borderRadius: BorderRadius.all(
                         Radius.circular(Constants.borderRadius)),
                   ),
-                  child: Center(child: Text(countryString)),
+                  child: Center(
+                      child: DropdownButtonHideUnderline(
+                    child: DropdownButton<String>(
+                      value: currentCountry['code'],
+                      items: Countries.allCountries
+                          // .sort((a, b) =>
+                          //     a['dial_code']!.compareTo(b['dial_code']!))
+                          .map(
+                            (e) => DropdownMenuItem<String>(
+                                value: e['code'],
+                                child: Text(
+                                    '${Countries.getFlagEmoji(e['code']!)}  ${e['dial_code']}')),
+                          )
+                          .toList(),
+                      onChanged: (value) {
+                        for (var element in Countries.allCountries) {
+                          // print(element['dial_code']);
+                          if (value! == (element['code']!)) {
+                            currentCountry = element;
+                            setCountry();
+                          }
+                        }
+                      },
+                    ),
+                  )),
                 ),
               ),
               Expanded(
