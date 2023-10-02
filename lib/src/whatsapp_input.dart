@@ -74,12 +74,12 @@ class _WhatsAppInputState extends State<WhatsAppInput> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('Invalid Number'),
-          content: const Text('Please enter a valid mobile number'),
+          title: const Text(Constants.invalidMessageTitle),
+          content: const Text(Constants.invalidMessageDesc),
           actions: [
             TextButton(
                 onPressed: () => Navigator.of(context).pop(),
-                child: const Text('OK'))
+                child: const Text(Constants.closeButtonText))
           ],
         );
       },
@@ -162,7 +162,7 @@ class _WhatsAppInputState extends State<WhatsAppInput> {
                             ),
                           )
                         : null,
-                    hintText: "WhatsApp Number",
+                    hintText: Constants.inputHintMessage,
                   ),
                 ),
               ),
@@ -185,7 +185,7 @@ class _WhatsAppInputState extends State<WhatsAppInput> {
                 children: <Widget>[
                   FaIcon(FontAwesomeIcons.whatsapp),
                   Text(
-                    " Message",
+                    Constants.buttonText,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 17,

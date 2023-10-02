@@ -41,7 +41,7 @@ class Home extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "Send messages without saving contacts",
+                        Constants.appDescription,
                         style: TextStyle(color: Colors.blueGrey),
                       ),
                       Expanded(
@@ -62,7 +62,7 @@ class Home extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         child: Center(
                           child: Text(
-                            "Message Now!",
+                            Constants.appHeading,
                             style: GoogleFonts.lato(
                                 textStyle: const TextStyle(
                                     fontSize: 22, fontWeight: FontWeight.w700)),

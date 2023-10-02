@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsapp_karo/consts.dart';
 import 'package:whatsapp_karo/utils.dart';
 
 class BottomBar extends StatelessWidget {
@@ -17,9 +18,9 @@ class BottomBar extends StatelessWidget {
           children: <Widget>[
             RichText(
                 text: TextSpan(children: [
-              const TextSpan(text: "Designed with ❤ by "),
+              const TextSpan(text: Constants.footerMessage),
               TextSpan(
-                text: "Gopa Vasanth",
+                text: Constants.author,
                 style: const TextStyle(decoration: TextDecoration.underline),
                 recognizer: TapGestureRecognizer()
                   ..onTap = UrlHelper.launchWebsite,
