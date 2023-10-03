@@ -17,7 +17,6 @@ class _SearchPageState extends State<SearchPage> {
     super.initState();
     filteredCountries = allCountries; // Initialize with all countries
   }
-
   void updateFilteredCountries(List<Map<String, String>> countries) {
     setState(() {
       filteredCountries = countries;
@@ -46,33 +45,38 @@ class _SearchPageState extends State<SearchPage> {
                 final country = filteredCountries[index];
                 return GestureDetector(
                   onTap: () {
-                    // Pass the selected country back to the previous page
                     Navigator.pop(context, country);
                   },
                   child: Container(
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 16),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+                    child: Column(
                       children: [
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              '${Countries.getFlagEmoji(country['code']!)}',
-                              style: TextStyle(fontSize: 24),
+                            Row(
+                              children: [
+                                Text(
+                                  '${Countries.getFlagEmoji(country['code']!)}',
+                                  style: TextStyle(fontSize: 24),
+                                ),
+                                SizedBox(width: 8), // Add some spacing between flag and dial_code
+                                Text(
+                                  '${country['name']}',
+                                  style: TextStyle(fontSize: 16),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ],
                             ),
-                            SizedBox(width: 8), // Add some spacing between flag and dial_code
                             Text(
-                              '${country['name']}',
+                              country['dial_code']!,
                               style: TextStyle(fontSize: 16),
                               overflow: TextOverflow.ellipsis,
                             ),
                           ],
                         ),
-                        Text(
-                          country['dial_code']!,
-                          style: TextStyle(fontSize: 16),
-                          overflow: TextOverflow.ellipsis,
-                        ),
+                        SizedBox(height: 10,),
+                        Container(width: double.infinity,height: 1,color: Colors.black,)
                       ],
                     ),
                   ),
@@ -117,7 +121,10 @@ class _CountrySearchBarState extends State<CountrySearchBar> {
 
     widget.onSearch(filteredCountries);
   }
-
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Padding(

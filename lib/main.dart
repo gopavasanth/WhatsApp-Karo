@@ -4,7 +4,6 @@ import 'package:whatsapp_karo/src/home.dart';
 
 void main() {
   runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
     theme: ThemeData(
       colorScheme: ColorScheme.fromSeed(
         seedColor: Constants.primaryColor,
