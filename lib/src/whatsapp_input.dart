@@ -133,16 +133,20 @@ class _WhatsAppInputState extends State<WhatsAppInput> {
                   onTap: _navigateToCountrySelectionPage, // Navigate to country selection page on tap
                   child: Container(
                     height: double.maxFinite,
-                    width: 120,
+                    width: 100,
                     padding: const EdgeInsets.symmetric(horizontal: 4.0),
                     decoration: BoxDecoration(
                       border: Border.fromBorderSide(BorderSide(color: Colors.black, width: 1.0)),
                       borderRadius: BorderRadius.all(Radius.circular(Constants.borderRadius)),
                     ),
-                    child: Center(
-                      child: Text(
-                        '${Countries.getFlagEmoji(currentCountry['code']!)}  ${currentCountry['dial_code']}',
-                      ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          '${Countries.getFlagEmoji(currentCountry['code']!)}  ${currentCountry['dial_code']}',
+                        ),
+                        Icon(Icons.arrow_drop_down)
+                      ],
                     ),
                   ),
                 ),

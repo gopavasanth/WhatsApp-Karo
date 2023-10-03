@@ -27,7 +27,11 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Select a Country"),
+        title: Text("Select a Country",style: TextStyle(color: Colors.black),),
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(
+          color: Colors.black
+        ),
       ),
       body: Column(
         children: [
@@ -121,7 +125,7 @@ class _CountrySearchBarState extends State<CountrySearchBar> {
       child: TextField(
         controller: _searchController,
         decoration: InputDecoration(
-          hintText: 'Search for a country',
+          hintText: 'Search by country name',
           prefixIcon: Icon(Icons.search),
           focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black, width: 1.0),
