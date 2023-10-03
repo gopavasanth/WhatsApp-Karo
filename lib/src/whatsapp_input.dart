@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:phone_number/phone_number.dart';
 import 'package:whatsapp_karo/consts.dart';
 import 'package:whatsapp_karo/src/countries.dart';
+import 'package:whatsapp_karo/src/search_page.dart';
 import 'package:whatsapp_karo/utils.dart';
 
 class WhatsAppInput extends StatefulWidget {
@@ -36,6 +37,19 @@ class _WhatsAppInputState extends State<WhatsAppInput> {
     setState(() {
       countryString = Countries.getFlagEmoji(currentCountry['code']!);
     });
+  }
+  void _navigateToCountrySelectionPage() async {
+    final selectedCountry = await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SearchPage()),
+    );
+
+    if (selectedCountry != null) {
+      setState(() {
+        currentCountry = selectedCountry;
+        setCountry();
+      });
+    }
   }
 
   clearInput() {
@@ -115,43 +129,25 @@ class _WhatsAppInputState extends State<WhatsAppInput> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(right: 8.0),
-                child: Container(
-                  height: double.maxFinite,
-                  width: 120,
-                  padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                  decoration: const BoxDecoration(
-                    border: Border.fromBorderSide(
-                        BorderSide(color: Colors.black, width: 1.0)),
-                    borderRadius: BorderRadius.all(
-                        Radius.circular(Constants.borderRadius)),
-                  ),
-                  child: Center(
-                      child: DropdownButtonHideUnderline(
-                    child: DropdownButton<String>(
-                      value: currentCountry['code'],
-                      items: Countries.allCountries
-                          // .sort((a, b) =>
-                          //     a['dial_code']!.compareTo(b['dial_code']!))
-                          .map(
-                            (e) => DropdownMenuItem<String>(
-                                value: e['code'],
-                                child: Text(
-                                    '${Countries.getFlagEmoji(e['code']!)}  ${e['dial_code']}')),
-                          )
-                          .toList(),
-                      onChanged: (value) {
-                        for (var element in Countries.allCountries) {
-                          // print(element['dial_code']);
-                          if (value! == (element['code']!)) {
-                            currentCountry = element;
-                            setCountry();
-                          }
-                        }
-                      },
+                child: GestureDetector(
+                  onTap: _navigateToCountrySelectionPage, // Navigate to country selection page on tap
+                  child: Container(
+                    height: double.maxFinite,
+                    width: 120,
+                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    decoration: BoxDecoration(
+                      border: Border.fromBorderSide(BorderSide(color: Colors.black, width: 1.0)),
+                      borderRadius: BorderRadius.all(Radius.circular(Constants.borderRadius)),
                     ),
-                  )),
+                    child: Center(
+                      child: Text(
+                        '${Countries.getFlagEmoji(currentCountry['code']!)}  ${currentCountry['dial_code']}',
+                      ),
+                    ),
+                  ),
                 ),
               ),
+
               Expanded(
                 child: TextFormField(
                   focusNode: focusNode,

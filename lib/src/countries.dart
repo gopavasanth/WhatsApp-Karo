@@ -43,7 +43,7 @@ class Countries {
     {"name": "Chile", "dial_code": "+56", "code": "CL"},
     {"name": "Colombia", "dial_code": "+57", "code": "CO"},
     {
-      "name": "Venezuela, Bolivarian Republic of Venezuela",
+      "name": "Bolivarian Republic of Venezuela",
       "dial_code": "+58",
       "code": "VE"
     },
@@ -59,7 +59,7 @@ class Countries {
     {"name": "Kazakhstan", "dial_code": "+77", "code": "KZ"},
     {"name": "Japan", "dial_code": "+81", "code": "JP"},
     {
-      "name": "Korea, Republic of South Korea",
+      "name": "South Korea",
       "dial_code": "+82",
       "code": "KR"
     },
@@ -105,7 +105,7 @@ class Countries {
     {"name": "Gabon", "dial_code": "+241", "code": "GA"},
     {"name": "Congo", "dial_code": "+242", "code": "CG"},
     {
-      "name": "Congo, The Democratic Republic of the Congo",
+      "name": "Congo",
       "dial_code": "+243",
       "code": "CD"
     },
@@ -143,7 +143,7 @@ class Countries {
     {"name": "Swaziland", "dial_code": "+268", "code": "SZ"},
     {"name": "Comoros", "dial_code": "+269", "code": "KM"},
     {
-      "name": "Saint Helena, Ascension and Tristan Da Cunha",
+      "name": "Saint Helena",
       "dial_code": "+290",
       "code": "SH"
     },
@@ -189,7 +189,7 @@ class Countries {
     {"name": "Liechtenstein", "dial_code": "+423", "code": "LI"},
     {"name": "Falkland Islands (Malvinas)", "dial_code": "+500", "code": "FK"},
     {
-      "name": "South Georgia and the South Sandwich Islands",
+      "name": "South Georgia",
       "dial_code": "+500",
       "code": "GS"
     },
@@ -206,7 +206,7 @@ class Countries {
     {"name": "Saint Barthelemy", "dial_code": "+590", "code": "BL"},
     {"name": "Saint Martin", "dial_code": "+590", "code": "MF"},
     {
-      "name": "Bolivia, Plurinational State of",
+      "name": "Bolivia",
       "dial_code": "+591",
       "code": "BO"
     },
@@ -239,13 +239,13 @@ class Countries {
     {"name": "French Polynesia", "dial_code": "+689", "code": "PF"},
     {"name": "Tokelau", "dial_code": "+690", "code": "TK"},
     {
-      "name": "Micronesia, Federated States of Micronesia",
+      "name": "Federated States of Micronesia",
       "dial_code": "+691",
       "code": "FM"
     },
     {"name": "Marshall Islands", "dial_code": "+692", "code": "MH"},
     {
-      "name": "Korea, Democratic People's Republic of Korea",
+      "name": "North Korea",
       "dial_code": "+850",
       "code": "KP"
     },
