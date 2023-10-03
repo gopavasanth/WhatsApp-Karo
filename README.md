@@ -17,7 +17,7 @@ Enjoy these great features:
 
 Please note: WhatsKaro and its developers are not affiliated with WhatsApp. WhatsApp is a registered trademark of WhatsApp Inc. Please follow WhatsApp's terms and conditions while using the WhatsKaro app.
 
-![App Screenshot](screenshot.png)
+<img src="screenshot.png" alt="App Screenshot" height="250">
 
 ## Getting Started
 
