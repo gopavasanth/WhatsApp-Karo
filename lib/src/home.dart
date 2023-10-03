@@ -69,7 +69,7 @@ class Home extends StatelessWidget {
                           ),
                         )),
                   ),
-                  WhatsAppInput(),
+                  const WhatsAppInput(),
                 ],
               ),
             ),

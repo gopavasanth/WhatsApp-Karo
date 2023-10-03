@@ -109,7 +109,7 @@ class _WhatsAppInputState extends State<WhatsAppInput> {
     return Column(
       children: [
         Container(
-          padding: const EdgeInsets.fromLTRB(40, 20, 40, 10),
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
           height: 90,
           child: Row(
             children: [
@@ -191,7 +191,7 @@ class _WhatsAppInputState extends State<WhatsAppInput> {
           ),
         ),
         Container(
-          padding: const EdgeInsets.fromLTRB(40, 2, 40, 10),
+          padding: const EdgeInsets.fromLTRB(20, 2, 20, 10),
           child: Padding(
             padding: const EdgeInsets.all(3.0),
             child: ElevatedButton(
