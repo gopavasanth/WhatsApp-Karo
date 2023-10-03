@@ -38,7 +38,7 @@ class _SearchPageState extends State<SearchPage> {
             allCountries: allCountries,
             onSearch: updateFilteredCountries,
           ),
-          Expanded(
+          Flexible(
             child: ListView.builder(
               itemCount: filteredCountries.length,
               itemBuilder: (context, index) {
@@ -54,29 +54,38 @@ class _SearchPageState extends State<SearchPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Row(
-                              children: [
-                                Text(
-                                  '${Countries.getFlagEmoji(country['code']!)}',
-                                  style: TextStyle(fontSize: 24),
-                                ),
-                                SizedBox(width: 8), // Add some spacing between flag and dial_code
-                                Text(
-                                  '${country['name']}',
-                                  style: TextStyle(fontSize: 16),
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ],
+                            Flexible(
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Flexible(
+                                    child: Text(
+                                      '${Countries.getFlagEmoji(country['code']!)}',
+                                      style: TextStyle(fontSize: 24),
+                                    ),
+                                  ),
+                                  SizedBox(width: 8), // Add some spacing between flag and dial_code
+                                  Flexible(
+                                    child: Text(
+                                      '${country['name']}',
+                                      style: TextStyle(fontSize: 16),
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
-                            Text(
-                              country['dial_code']!,
-                              style: TextStyle(fontSize: 16),
-                              overflow: TextOverflow.ellipsis,
+                            Flexible(
+                              child: Text(
+                                country['dial_code']!,
+                                style: TextStyle(fontSize: 16),
+                                overflow: TextOverflow.ellipsis,
+                              ),
                             ),
                           ],
                         ),
                         SizedBox(height: 10,),
-                        Container(width: double.infinity,height: 1,color: Colors.black,)
+                        Container(width: double.infinity,height: 1,color: Colors.grey,)
                       ],
                     ),
                   ),
