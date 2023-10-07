@@ -41,7 +41,7 @@ class _WhatsAppInputState extends State<WhatsAppInput> {
   void _navigateToCountrySelectionPage() async {
     final selectedCountry = await Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => SearchPage()),
+      MaterialPageRoute(builder: (context) => const SearchPage()),
     );
 
     if (selectedCountry != null) {
@@ -135,7 +135,7 @@ class _WhatsAppInputState extends State<WhatsAppInput> {
                     height: double.maxFinite,
                     width: 100,
                     padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       border: Border.fromBorderSide(BorderSide(color: Colors.black, width: 1.0)),
                       borderRadius: BorderRadius.all(Radius.circular(Constants.borderRadius)),
                     ),
@@ -145,7 +145,7 @@ class _WhatsAppInputState extends State<WhatsAppInput> {
                         Text(
                           '${Countries.getFlagEmoji(currentCountry['code']!)}  ${currentCountry['dial_code']}',
                         ),
-                        Icon(Icons.arrow_drop_down)
+                        const Icon(Icons.arrow_drop_down)
                       ],
                     ),
                   ),
