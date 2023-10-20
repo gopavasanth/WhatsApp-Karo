@@ -7,7 +7,7 @@ Thank you for your interest in contributing to WhatsApp-Karo! We welcome contrib
 - You are allowed to make pull requests. Just make sure it adds some value to the project.
 - Do NOT remove other content unless its necessary.
 - Styling/code should follow community standards (eg. Proper Code Formatting).
-- PR can be Big or Small. Don't be afraid to open a PR, you will always get help :)
+- A PR can be Big or Small. Don't be afraid to open a PR, you will always get help :)
 
 
 ## Getting Started 🤩🤗:
