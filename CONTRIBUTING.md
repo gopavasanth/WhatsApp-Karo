@@ -75,7 +75,7 @@ This will give you any eventual conflicts and allow you to easily solve them in 
 
 ## Setup Guide
 
-This app is written in Flutter. Even though Flutter is cross-platform, This app is currently focused on Android or iOS. So in order to setup and run the project locally, you need to have `an emulator(android or iOS) or a real device` and `flutter installed` locally.
+This app is written in Flutter. Even though Flutter is cross-platform, This app is currently focused on Android or iOS. So in order to setup and run the project locally, you need to have an emulator(android or iOS) or a real device and flutter installed locally.
 
 After making a clone of this project, running this project is as simple as:
 
