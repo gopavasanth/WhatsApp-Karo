@@ -5,9 +5,9 @@ Thank you for your interest in contributing to WhatsApp-Karo! We welcome contrib
 ## Contribution Rules📚:
 
 - You are allowed to make pull requests. Just make sure it adds some value to the project.
-- Do NOT remove other content.
-- Styling/code should follow some standards.
-- PRs can be Big or Small. It will be reviewed and then only it will be merged/accepted.
+- Do NOT remove other content unless its necessary.
+- Styling/code should follow community standards (eg. Proper Code Formatting).
+- A PR can be Big or Small. Don't be afraid to open a PR, you will always get help :)
 
 
 ## Getting Started 🤩🤗:
@@ -75,7 +75,7 @@ This will give you any eventual conflicts and allow you to easily solve them in 
 
 ## Setup Guide
 
-This app is written in Flutter. Even though Flutter is cross-platform, This app is currently focused on Android or iOS. So in order to setup and run the project locally, you need to have an emulator(android or iOS) or a real device.
+This app is written in Flutter. Even though Flutter is cross-platform, This app is currently focused on Android or iOS. So in order to setup and run the project locally, you need to have an emulator(android or iOS) or a real device and flutter installed locally.
 
 After making a clone of this project, running this project is as simple as:
 
