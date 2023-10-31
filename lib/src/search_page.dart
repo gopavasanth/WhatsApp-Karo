@@ -35,86 +35,92 @@ class _SearchPageState extends State<SearchPage> {
         backgroundColor: Colors.white,
         iconTheme: const IconThemeData(color: Colors.black),
       ),
-      body: Column(
-        children: [
-          CountrySearchBar(
-            allCountries: allCountries,
-            onSearch: updateFilteredCountries,
-          ),
-          Flexible(
-            child: ListView.builder(
-              itemCount: filteredCountries.length,
-              itemBuilder: (context, index) {
-                final country = filteredCountries[index];
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context, country);
-                  },
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 10, horizontal: 25),
+      body: SafeArea(
+        bottom: false, // disable bottom so that list doesn't feel restricted
+        child: Column(
+          children: [
+            CountrySearchBar(
+              allCountries: allCountries,
+              onSearch: updateFilteredCountries,
+            ),
+            Flexible(
+              child: ListView.builder(
+                itemCount: filteredCountries.length,
+                itemBuilder: (context, index) {
+                  final country = filteredCountries[index];
+                  return Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
                     child: Column(
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Flexible(
-                              flex: 1,
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Flexible(
-                                    flex: 0,
-                                    child: Padding(
-                                      padding:
-                                          const EdgeInsets.only(right: 8.0),
-                                      child: Text(
-                                        Countries.getFlagEmoji(
-                                            country['code']!),
-                                        style: const TextStyle(fontSize: 24),
+                        GestureDetector(
+                          onTap: () {
+                            debugPrint('tap event: $country');
+                            Navigator.pop(context, country);
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 10),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Flexible(
+                                  flex: 1,
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Flexible(
+                                        flex: 0,
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 8.0),
+                                          child: Text(
+                                            Countries.getFlagEmoji(
+                                                country['code']!),
+                                            style:
+                                                const TextStyle(fontSize: 24),
+                                          ),
+                                        ),
                                       ),
-                                    ),
+                                      Flexible(
+                                        flex: 1,
+                                        fit: FlexFit.tight,
+                                        child: Text(
+                                          '${country['name']}',
+                                          style: const TextStyle(fontSize: 16),
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                  Flexible(
-                                    flex: 1,
+                                ),
+                                Flexible(
+                                  flex: 0,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 3.0),
                                     child: Text(
-                                      '${country['name']}',
+                                      country['dial_code']!,
                                       style: const TextStyle(fontSize: 16),
                                       overflow: TextOverflow.ellipsis,
                                     ),
                                   ),
-                                ],
-                              ),
-                            ),
-                            Flexible(
-                              flex: 0,
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 3.0),
-                                child: Text(
-                                  country['dial_code']!,
-                                  style: const TextStyle(fontSize: 16),
-                                  overflow: TextOverflow.ellipsis,
                                 ),
-                              ),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Container(
-                          width: double.infinity,
+                        const Divider(
+                          thickness: 1,
                           height: 1,
                           color: Colors.grey,
                         )
                       ],
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

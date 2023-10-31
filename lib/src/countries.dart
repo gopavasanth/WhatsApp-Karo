@@ -58,11 +58,7 @@ class Countries {
     {"name": "Thailand", "dial_code": "+66", "code": "TH"},
     {"name": "Kazakhstan", "dial_code": "+77", "code": "KZ"},
     {"name": "Japan", "dial_code": "+81", "code": "JP"},
-    {
-      "name": "South Korea",
-      "dial_code": "+82",
-      "code": "KR"
-    },
+    {"name": "South Korea", "dial_code": "+82", "code": "KR"},
     {"name": "Vietnam", "dial_code": "+84", "code": "VN"},
     {"name": "China", "dial_code": "+86", "code": "CN"},
     {"name": "Turkey", "dial_code": "+90", "code": "TR"},
@@ -71,11 +67,7 @@ class Countries {
     {"name": "Afghanistan", "dial_code": "+93", "code": "AF"},
     {"name": "Sri Lanka", "dial_code": "+94", "code": "LK"},
     {"name": "Myanmar", "dial_code": "+95", "code": "MM"},
-    {
-      "name": "Iran, Islamic Republic of Persian Gulf",
-      "dial_code": "+98",
-      "code": "IR"
-    },
+    {"name": "Iran", "dial_code": "+98", "code": "IR"},
     {"name": "South Sudan", "dial_code": "+211", "code": "SS"},
     {"name": "Morocco", "dial_code": "+212", "code": "MA"},
     {"name": "Algeria", "dial_code": "+213", "code": "DZ"},
@@ -104,11 +96,7 @@ class Countries {
     {"name": "Equatorial Guinea", "dial_code": "+240", "code": "GQ"},
     {"name": "Gabon", "dial_code": "+241", "code": "GA"},
     {"name": "Congo", "dial_code": "+242", "code": "CG"},
-    {
-      "name": "Congo",
-      "dial_code": "+243",
-      "code": "CD"
-    },
+    {"name": "Congo", "dial_code": "+243", "code": "CD"},
     {"name": "Angola", "dial_code": "+244", "code": "AO"},
     {"name": "Guinea-Bissau", "dial_code": "+245", "code": "GW"},
     {
@@ -123,11 +111,7 @@ class Countries {
     {"name": "Somalia", "dial_code": "+252", "code": "SO"},
     {"name": "Djibouti", "dial_code": "+253", "code": "DJ"},
     {"name": "Kenya", "dial_code": "+254", "code": "KE"},
-    {
-      "name": "Tanzania, United Republic of Tanzania",
-      "dial_code": "+255",
-      "code": "TZ"
-    },
+    {"name": "Tanzania", "dial_code": "+255", "code": "TZ"},
     {"name": "Uganda", "dial_code": "+256", "code": "UG"},
     {"name": "Burundi", "dial_code": "+257", "code": "BI"},
     {"name": "Mozambique", "dial_code": "+258", "code": "MZ"},
@@ -142,11 +126,7 @@ class Countries {
     {"name": "Botswana", "dial_code": "+267", "code": "BW"},
     {"name": "Swaziland", "dial_code": "+268", "code": "SZ"},
     {"name": "Comoros", "dial_code": "+269", "code": "KM"},
-    {
-      "name": "Saint Helena",
-      "dial_code": "+290",
-      "code": "SH"
-    },
+    {"name": "Saint Helena", "dial_code": "+290", "code": "SH"},
     {"name": "Eritrea", "dial_code": "+291", "code": "ER"},
     {"name": "Aruba", "dial_code": "+297", "code": "AW"},
     {"name": "Faroe Islands", "dial_code": "+298", "code": "FO"},
@@ -188,11 +168,7 @@ class Countries {
     {"name": "Slovakia", "dial_code": "+421", "code": "SK"},
     {"name": "Liechtenstein", "dial_code": "+423", "code": "LI"},
     {"name": "Falkland Islands (Malvinas)", "dial_code": "+500", "code": "FK"},
-    {
-      "name": "South Georgia",
-      "dial_code": "+500",
-      "code": "GS"
-    },
+    {"name": "South Georgia", "dial_code": "+500", "code": "GS"},
     {"name": "Belize", "dial_code": "+501", "code": "BZ"},
     {"name": "Guatemala", "dial_code": "+502", "code": "GT"},
     {"name": "El Salvador", "dial_code": "+503", "code": "SV"},
@@ -205,11 +181,7 @@ class Countries {
     {"name": "Guadeloupe", "dial_code": "+590", "code": "GP"},
     {"name": "Saint Barthelemy", "dial_code": "+590", "code": "BL"},
     {"name": "Saint Martin", "dial_code": "+590", "code": "MF"},
-    {
-      "name": "Bolivia",
-      "dial_code": "+591",
-      "code": "BO"
-    },
+    {"name": "Bolivia", "dial_code": "+591", "code": "BO"},
     {"name": "Ecuador", "dial_code": "+593", "code": "EC"},
     {"name": "French Guiana", "dial_code": "+594", "code": "GF"},
     {"name": "Guyana", "dial_code": "+595", "code": "GY"},
@@ -244,11 +216,7 @@ class Countries {
       "code": "FM"
     },
     {"name": "Marshall Islands", "dial_code": "+692", "code": "MH"},
-    {
-      "name": "North Korea",
-      "dial_code": "+850",
-      "code": "KP"
-    },
+    {"name": "North Korea", "dial_code": "+850", "code": "KP"},
     {"name": "Hong Kong", "dial_code": "+852", "code": "HK"},
     {"name": "Macao", "dial_code": "+853", "code": "MO"},
     {"name": "Cambodia", "dial_code": "+855", "code": "KH"},
@@ -265,11 +233,7 @@ class Countries {
     {"name": "Saudi Arabia", "dial_code": "+966", "code": "SA"},
     {"name": "Yemen", "dial_code": "+967", "code": "YE"},
     {"name": "Oman", "dial_code": "+968", "code": "OM"},
-    {
-      "name": "Palestinian Territory, Occupied",
-      "dial_code": "+970",
-      "code": "PS"
-    },
+    {"name": "Palestinian Territory", "dial_code": "+970", "code": "PS"},
     {"name": "United Arab Emirates", "dial_code": "+971", "code": "AE"},
     {"name": "Israel", "dial_code": "+972", "code": "IL"},
     {"name": "Bahrain", "dial_code": "+973", "code": "BH"},
