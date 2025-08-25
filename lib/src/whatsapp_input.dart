@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:phone_number/phone_number.dart';
+import 'package:phone_numbers_parser/phone_numbers_parser.dart';
 import 'package:whatsapp_karo/consts.dart';
 import 'package:whatsapp_karo/src/countries.dart';
 import 'package:whatsapp_karo/src/search_page.dart';
@@ -33,11 +33,12 @@ class _WhatsAppInputState extends State<WhatsAppInput> {
     showClear = false;
   }
 
-  setCountry() {
+  void setCountry() {
     setState(() {
-      countryString = Countries.getFlagEmoji(currentCountry['code']!);
+      countryString = Countries.getFlagEmoji(currentCountry['code'] ?? 'IN');
     });
   }
+
   void _navigateToCountrySelectionPage() async {
     final selectedCountry = await Navigator.push(
       context,
@@ -52,7 +53,7 @@ class _WhatsAppInputState extends State<WhatsAppInput> {
     }
   }
 
-  clearInput() {
+  void clearInput() {
     numberController.clear();
     focusNode.unfocus();
     setState(() {
@@ -60,17 +61,19 @@ class _WhatsAppInputState extends State<WhatsAppInput> {
     });
   }
 
-  launchURLBrowser(String num) async {
+  Future<void> launchURLBrowser(String num) async {
     // if there is no number, return and don't launch the url
     if (num.isEmpty) return;
 
     // format the mobile number before launching the url
     try {
       // parse the number according to the current country code
-      var res = await PhoneNumberUtil()
-          .parse(num, regionCode: currentCountry['code']);
+      var res = PhoneNumber.parse(
+        num,
+        destinationCountry: IsoCode.fromJson(currentCountry['code'] ?? 'IN'),
+      );
 
-      num = res.e164;
+      num = res.international;
 
       debugPrint(num);
 
@@ -81,7 +84,7 @@ class _WhatsAppInputState extends State<WhatsAppInput> {
     }
   }
 
-  showInvalidNumber() {
+  void showInvalidNumber() {
     showDialog(
       context: context,
       builder: (context) {
@@ -90,19 +93,20 @@ class _WhatsAppInputState extends State<WhatsAppInput> {
           content: const Text(Constants.invalidMessageDesc),
           actions: [
             TextButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: const Text(Constants.closeButtonText))
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text(Constants.closeButtonText),
+            ),
           ],
         );
       },
     );
   }
 
-  sendMessage() {
+  void sendMessage() {
     launchURLBrowser(numberController.text);
   }
 
-  textOnChange(String text) {
+  void textOnChange(String text) {
     showClear = text.isNotEmpty;
     if (text.isNotEmpty) {
       // change current country and flag from what is pasted or typed
@@ -130,22 +134,27 @@ class _WhatsAppInputState extends State<WhatsAppInput> {
               Padding(
                 padding: const EdgeInsets.only(right: 8.0),
                 child: GestureDetector(
-                  onTap: _navigateToCountrySelectionPage, // Navigate to country selection page on tap
+                  onTap:
+                      _navigateToCountrySelectionPage, // Navigate to country selection page on tap
                   child: Container(
                     height: double.maxFinite,
                     width: 100,
                     padding: const EdgeInsets.symmetric(horizontal: 4.0),
                     decoration: const BoxDecoration(
-                      border: Border.fromBorderSide(BorderSide(color: Colors.black, width: 1.0)),
-                      borderRadius: BorderRadius.all(Radius.circular(Constants.borderRadius)),
+                      border: Border.fromBorderSide(
+                        BorderSide(color: Colors.black, width: 1.0),
+                      ),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(Constants.borderRadius),
+                      ),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          '${Countries.getFlagEmoji(currentCountry['code']!)}  ${currentCountry['dial_code']}',
+                          '${Countries.getFlagEmoji(currentCountry['code'] ?? 'IN')}  ${currentCountry['dial_code']}',
                         ),
-                        const Icon(Icons.arrow_drop_down)
+                        const Icon(Icons.arrow_drop_down),
                       ],
                     ),
                   ),
@@ -167,20 +176,19 @@ class _WhatsAppInputState extends State<WhatsAppInput> {
                     focusedBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.black, width: 1.0),
                       borderRadius: BorderRadius.all(
-                          Radius.circular(Constants.borderRadius)),
+                        Radius.circular(Constants.borderRadius),
+                      ),
                     ),
                     enabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.black, width: 1.0),
                       borderRadius: BorderRadius.all(
-                          Radius.circular(Constants.borderRadius)),
+                        Radius.circular(Constants.borderRadius),
+                      ),
                     ),
                     suffixIcon: showClear
                         ? IconButton(
                             onPressed: clearInput,
-                            icon: const Icon(
-                              Icons.clear,
-                              color: Colors.black,
-                            ),
+                            icon: const Icon(Icons.clear, color: Colors.black),
                           )
                         : null,
                     hintText: Constants.inputHintMessage,
@@ -208,10 +216,8 @@ class _WhatsAppInputState extends State<WhatsAppInput> {
                   Text(
                     Constants.buttonText,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 17,
-                    ),
-                  )
+                    style: TextStyle(fontSize: 17),
+                  ),
                 ],
               ),
             ),
