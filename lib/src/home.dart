@@ -10,7 +10,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       resizeToAvoidBottomInset: false,
       body: Center(
         child: Column(
@@ -53,21 +53,23 @@ class Home extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  const SizedBox(height: 10),
                   Container(
                     padding: const EdgeInsets.fromLTRB(30, 20, 0, 2),
                     child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Center(
-                          child: Text(
-                            Constants.appHeading,
-                            style: GoogleFonts.lato(
-                                textStyle: const TextStyle(
-                                    fontSize: 22, fontWeight: FontWeight.w700)),
+                      alignment: Alignment.centerLeft,
+                      child: Center(
+                        child: Text(
+                          Constants.appHeading,
+                          style: GoogleFonts.lato(
+                            textStyle: const TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
-                        )),
+                        ),
+                      ),
+                    ),
                   ),
                   const WhatsAppInput(),
                 ],
@@ -87,11 +89,14 @@ class Home extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Text("Karo",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: MediaQuery.of(context).size.height / 30,
-                    fontWeight: FontWeight.bold)),
+            Text(
+              "Karo",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: MediaQuery.of(context).size.height / 30,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ],
         ),
         centerTitle: true,
